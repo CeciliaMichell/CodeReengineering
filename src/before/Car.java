@@ -11,7 +11,8 @@ public class Car extends Vehicle {
     generateId();
   }
 
-  public static boolean validateNumberOfSeats(int num) {
+  // comment - validatenumberofseat
+  public static boolean vnos(int num) {
     return num >= 1 && num <= 8;
   }
 
@@ -26,4 +27,3 @@ public class Car extends Vehicle {
     return 210500000 + (100000 * fuelCapacity);
   }
 }
-
