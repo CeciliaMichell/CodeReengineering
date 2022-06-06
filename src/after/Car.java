@@ -11,14 +11,10 @@ public class Car extends Vehicle {
     generateId();
   }
 
-  public static boolean vnos(int num) {
+  public static boolean validateNumberOfSeats(int num) {
     return num >= 1 && num <= 8;
   }
 
-  public static boolean validateNumberOfSeats(int num) {
-	return num >= 1 && num <= 8;
-  }
-  
   @Override
   protected void generateId() {
     Random rand = new Random();

@@ -62,16 +62,24 @@ public class App {
           }
 
           int numberOfSeats = -1;
+          String helmetType = "";
+          Vehicle vehicle;
           if (type.equals("Car")) {
-            while (!Car.validateNumberOfSeats(numberOfSeats)) {
+            while (!Car.vnos(numberOfSeats)) {
               System.out.print("Input Number of Seats [1 - 8]: ");
               numberOfSeats = sc.nextInt();
             }
+            vehicle = new Car(type, manufacturer, name, color, fuelCapacity, numberOfSeats);
+          } else {
+
+            while (!Motorcycle.validateHelmetType(helmetType)) {
+              System.out.println("Input Helmet Type [Full face | Modular] : ");
+              helmetType = sc.nextLine();
+            }
+            vehicle = new Motorcycle(type, manufacturer, name, color, fuelCapacity, helmetType);
           }
 
           System.out.println(numberOfSeats);
-
-          Vehicle vehicle = new Car(type, manufacturer, name, color, fuelCapacity, numberOfSeats);
           System.out.println("Generated vehicle ID: " + vehicle.getId());
           System.out.println("Successfully added new vehicle!");
           vehicles.add(vehicle);
@@ -103,41 +111,40 @@ public class App {
             System.out.print("Input Index [0.." + vehicles.size() + "]: ");
             index = sc.nextInt();
           }
-          
+
           SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
-          
+
           Date startDate = null;
           Date endDate = null;
           boolean flag = false;
           String inputdatestart;
           String inputdateend;
-          
+
           do {
-        	  System.out.print("Input Start Date[dd/MM/yyyy]: ");
-              inputdatestart = sc.nextLine();
-              //duplicate code
-              try {
-            	  startDate = formatDate.parse(inputdatestart);
-            	  flag = true;
-			  } catch (Exception e) {
-				  flag = false;
-			  }
+            System.out.print("Input Start Date[dd/MM/yyyy]: ");
+            inputdatestart = sc.nextLine();
+            // duplicate code
+            try {
+              startDate = formatDate.parse(inputdatestart);
+              flag = true;
+            } catch (Exception e) {
+              flag = false;
+            }
           } while (!flag);
-          
+
           flag = false;
           do {
-        	  System.out.print("Input End Date[dd/MM/yyyy]: ");
-              inputdateend = sc.nextLine();
-              //duplicate code
-              try {
-            	  endDate = formatDate.parse(inputdateend);
-            	  flag = true;
-			  } catch (Exception e) {
-				  flag = false;
-			  }
+            System.out.print("Input End Date[dd/MM/yyyy]: ");
+            inputdateend = sc.nextLine();
+            // duplicate code
+            try {
+              endDate = formatDate.parse(inputdateend);
+              flag = true;
+            } catch (Exception e) {
+              flag = false;
+            }
           } while (!flag || startDate.after(endDate));
-          
-          
+
           rents.add(new Rent(nameRent, indentityNumb, vehicles.get(index), startDate, endDate));
 
           // duplikate code
