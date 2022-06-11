@@ -11,7 +11,7 @@ public class Car extends Vehicle {
     generateId();
   }
 
-  
+  //function for validate number of seat
   public static boolean vnos(int num) {
     return num >= 1 && num <= 8;
   }
