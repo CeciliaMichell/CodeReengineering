@@ -11,7 +11,7 @@ public class App {
   Vector<Vehicle> vehicles = new Vector<>();
   Vector<Rent> rents = new Vector<>();
 
-  // smell code - long method & switch statement
+  
   public App() {
     int choice = -1;
     while (choice != 5) {
