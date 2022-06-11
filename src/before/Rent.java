@@ -6,7 +6,6 @@ public class Rent {
   private String fullName;
   private String identityNumber;
   private Vehicle typeVehicle;
-  // data clumps, dead code
   private Date startRent;
   private Date endRent;
 
